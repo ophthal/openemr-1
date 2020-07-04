@@ -67,7 +67,7 @@ $query = "select  *,form_encounter.date as encounter_date
     $data = sqlQuery($query, array($_REQUEST['encounter'], $_REQUEST['pid']));
     $data['ODMPDD'] = $data['ODPDMeasured'];
     $data['OSMPDD'] = $data['OSPDMeasured'];
-    $data['BPDD']   = $data['ODMPDD'] + $data['OSMPDD'];
+    $data['BPDD']   = (float)$data['ODMPDD'] + (float)$data['OSMPDD'];
     @extract($data);
 
     $ODMPDD     = $ODPDMeasured;

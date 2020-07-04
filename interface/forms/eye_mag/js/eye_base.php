@@ -1981,12 +1981,8 @@ function update_DOCS() {
                    code_400(); //the user does not have write privileges!
                    return;
                    }
-                   //TODO:  We should also update the Communication Engine for sending note
-                   // to reflect these people...
-                   // Currently we have to reload the page to get the new names we selected
-                   // to show up in the Communications Engine
-                    obj = JSON.parse(result);
-                    build_DOCS(obj);
+                   obj = JSON.parse(result);
+                   build_DOCS(obj);
     });
 }
 
@@ -2001,6 +1997,12 @@ function build_DOCS(DOCS) {
         $("#pcp_phone").html(DOCS['pcp']['phone']);
         $("#pcp_phonew2").html(DOCS['pcp']['phone2']);
         $("#pcp_fax").html(DOCS['pcp']['fax_info']);
+    } else {
+        $("#pcp_name").html('');
+        $("#pcp_address").html('');
+        $("#pcp_phone").html('');
+        $("#pcp_phonew2").html('');
+        $("#pcp_fax").html('');
     }
     if (DOCS['ref']) {
         $("#ref_name").html(DOCS['ref']['name']);
@@ -2008,6 +2010,12 @@ function build_DOCS(DOCS) {
         $("#ref_phone").html(DOCS['ref']['phone']);
         $("#ref_phonew2").html(DOCS['ref']['phonew2']);
         $("#ref_fax").html(DOCS['ref']['fax_info']);
+    } else {
+        $("#ref_name").html('');
+        $("#ref_address").html('');
+        $("#ref_phone").html('');
+        $("#ref_phonew2").html('');
+        $("#ref_fax").html('');
     }
 }
 
@@ -2245,7 +2253,9 @@ $(function() {
                   $('#form_PCP,#form_rDOC').change(function() {
                                                    update_DOCS();
                                                    });
-
+                  $("#form_pharmacy_id").change(function() {
+                        update_Pharma();
+                  });
                   $('#tooltips_status').html($('#PREFS_TOOLTIPS').val());
                   if ($("#PREFS_TOOLTIPS").val() == "<?php echo xla('Off'); ?>") {
                     $('[title]').each(function() {
