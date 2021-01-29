@@ -264,13 +264,13 @@ function display_PRIOR_section($zone, $orig_id, $id_to_show, $pid, $report = '0'
                     echo $output;//prior visit selector - already sanitized
                     ?>
             </div>
-                <p class="font-weight-bold">
+                <span class="font-weight-bold">
                     <?php
                     if ($report == '0') {
                         echo xlt('Prior Exam');
                     } else {
                         echo xlt($zone);
-                    } ?>: </p>
+                    } ?>: </span>
                 <br />
                 <div id="PRIORS_EXT_left_1">
                     <table>
@@ -373,7 +373,7 @@ function display_PRIOR_section($zone, $orig_id, $id_to_show, $pid, $report = '0'
             </div>
             <br />
             <div class="QP_lengthen">
-                <p class="font-weight-bold"><?php echo xlt('Comments'); ?>:</p>
+                <span class="font-weight-bold"><?php echo xlt('Comments'); ?>:</span>
                 <br />
                 <textarea disabled id="PRIOR_EXT_COMMENTS" name="PRIOR_EXT_COMMENTS"><?php echo text($EXT_COMMENTS); ?></textarea>
             </div>
@@ -392,7 +392,7 @@ function display_PRIOR_section($zone, $orig_id, $id_to_show, $pid, $report = '0'
                 ?>
         </div>
 
-        <p class="font-weight-bold"> <?php echo xlt('Prior Exam'); ?>:</p>
+    <span class="font-weight-bold"> <?php echo xlt('Prior Exam'); ?>:</span>
         <br />
         <div class="text_clinical" id="PRIORS_ANTSEG_left_1">
             <table>
@@ -535,7 +535,7 @@ function display_PRIOR_section($zone, $orig_id, $id_to_show, $pid, $report = '0'
         </div>
         <br />
         <div class="QP_lengthen">
-            <p class="font-weight-bold"><?php echo xlt('Comments'); ?>:</p>
+            <span class="font-weight-bold"><?php echo xlt('Comments'); ?>:</span>
             <br />
             <textarea disabled id="PRIOR_ANTSEG_COMMENTS" name="PRIOR_ANTSEG_COMMENTS"><?php echo text($ANTSEG_COMMENTS); ?></textarea>
         </div>
@@ -553,7 +553,7 @@ function display_PRIOR_section($zone, $orig_id, $id_to_show, $pid, $report = '0'
                 echo $output;
                 ?>
         </div>
-        <p class="font-weight-bold"><?php echo xlt('Prior Exam'); ?>:</p>
+        <span class="font-weight-bold"><?php echo xlt('Prior Exam'); ?>:</span>
         <br />
         <div id="PRIORS_RETINA_left_1" class="text_clinical">
             <table>
@@ -638,7 +638,7 @@ function display_PRIOR_section($zone, $orig_id, $id_to_show, $pid, $report = '0'
         <br />
         <br />
         <div class="QP_lengthen">
-            <p class="font-weight-bold"><?php echo xlt('Comments'); ?>:</p>
+            <span class="font-weight-bold"><?php echo xlt('Comments'); ?>:</span>
             <br />
             <textarea disabled id="PRIOR_RETINA_COMMENTS" name="PRIOR_RETINA_COMMENTS" style="width:4.0in;height:3.0em;"><?php echo text($RETINA_COMMENTS); ?></textarea>
         </div>
@@ -655,7 +655,7 @@ function display_PRIOR_section($zone, $orig_id, $id_to_show, $pid, $report = '0'
                 echo $output;
                 ?>
         </div>
-        <p class="font-weight-bold"><?php echo xlt('Prior Exam'); ?>:</p>
+        <span class="font-weight-bold"><?php echo xlt('Prior Exam'); ?>:</span>
         <br />
         <div style="float:left;margin-top:0.8em;font-size:0.8em;">
             <div id="PRIOR_NEURO_text_list" class="borderShadow PRIORS" style="border:1pt solid black;float:left;width:195px;padding:10px;text-align:center;margin:2 2;font-weight:bold;">
@@ -1490,7 +1490,7 @@ margin: 2px 0 2px 2px;">
         </div>
         <br />
         <div class="QP_lengthen">
-            <p class="font-weight-bold"><?php echo xlt('Comments'); ?>:</p>
+            <span class="font-weight-bold"><?php echo xlt('Comments'); ?>:</span>
             <br />
             <textarea disabled id="PRIOR_NEURO_COMMENTS" name="PRIOR_NEURO_COMMENTS"><?php echo text($NEURO_COMMENTS); ?></textarea>
         </div>
@@ -1549,7 +1549,7 @@ margin: 2px 0 2px 2px;">
                 echo $output;
                 ?>
         </div>
-        <p class="font-weight-bold"> <?php echo xlt('Prior IMP/PLAN'); ?>:</p>
+        <span class="font-weight-bold"> <?php echo xlt('Prior IMP/PLAN'); ?>:</span>
         <br />
         <?php
         $PRIOR_IMPPLAN_items = build_IMPPLAN_items($pid, $id_to_show);
@@ -3942,7 +3942,7 @@ function menu_overhaul_top($pid, $encounter, $title = "Eye Exam")
                         </ul>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav ml-auto">
                     <li><span style="margin-right:15px;color:black;"  onclick="editScripts('/openemr/controller.php?prescription&list&id=<?php echo attr_url($pid); ?>');">eRx</button>
                         </span></li>
                     <li ><span id="active_flag" name="active_flag" style="margin-right:15px;color:red;"> <?php echo xlt('Active Chart'); ?> </span>
@@ -4003,19 +4003,19 @@ function menu_overhaul_left($pid, $encounter)
                     <?php
                         echo "<tr><td class='right' nowrap><p class='font-weight-bold'>" . xlt('Visit Date') . ":</p></td><td>&nbsp;" . $visit_date . "</td></tr>";
                     ?>
-                    <tr><td class="right" style="vertical-align:top;" nowrap><p class="font-weight-bold"><?php echo xlt("Provider"); ?>:</p>&nbsp;</td>
+                    <tr><td class="right" style="vertical-align:top;" nowrap><span class="font-weight-bold"><?php echo xlt("Provider"); ?>:</span>&nbsp;</td>
                         <td><?php echo text(getProviderName(getProviderIdOfEncounter($encounter))); ?></td>
                     </tr>
 
                     <tr>
-                        <td class="right" style="vertical-align:top;" nowrap><p class="font-weight-bold"><?php echo xlt("Reason"); ?>:</p>&nbsp;</td>
+                        <td class="right" style="vertical-align:top;" nowrap><span class="font-weight-bold"><?php echo xlt("Reason"); ?>:</span>&nbsp;</td>
                         <td><?php echo text($reason); ?></td>
                     </tr>
                     <?php
                     if ($priors[0]['TODO']) {
                         ?>
                     <tr>
-                        <td class="right" style="vertical-align:top;" nowrap><p class="font-weight-bold"><?php echo xlt("Plan"); ?>:</p>&nbsp;</td>
+                        <td class="right" style="vertical-align:top;" nowrap><span class="font-weight-bold"><?php echo xlt("Plan"); ?>:</span>&nbsp;</td>
                         <td style="vertical-align:top;">
                             <?php
                             $j = 1;
@@ -4050,21 +4050,21 @@ function menu_overhaul_left($pid, $encounter)
             <div style="position:relative;float:left;padding-left:18px;top:0px;">
                 <table style="border:1pt;font-size:1.0em;">
                     <tr>
-                        <td class="right"><p class="font-weight-bold"><?php echo xlt("PCP"); ?>:</p>&nbsp;</td>
+                        <td class="right"><span class="font-weight-bold"><?php echo xlt("PCP"); ?>:</span>&nbsp;</td>
                         <td class="left"><span id="pcp_name"><?php echo text($pcp_data['fname']) . " " . text($pcp_data['lname']); ?><?php if ($pcp_data['suffix']) {
                                     echo ", " . text($pcp_data['suffix']);} ?></span></td>
                         </td>
                     </tr>
 
-                    <tr><td class="right" nowrap><p class="font-weight-bold"><?php echo xlt("Referred By"); ?>:</p>&nbsp;</td>
+                    <tr><td class="right" nowrap><span class="font-weight-bold"><?php echo xlt("Referred By"); ?>:</span>&nbsp;</td>
                         <td class="left">&nbsp;
 
                         <span id="ref_name"><?php echo text($ref_data['fname']) . " " . text($ref_data['lname']); ?><?php if ($ref_data['suffix']) {
                                     echo ", " . text($ref_data['suffix']);} ?></span></td>
                         </tr>
-                    <tr><td class="right"><p class="font-weight-bold"><?php echo xlt("Insurance"); ?>:</p>&nbsp;</td><td class="left">&nbsp;<?php echo text($ins_coA); ?></td></tr>
-                    <tr><td class="right"><p class="font-weight-bold"><?php echo xlt("Secondary"); ?>:</p>&nbsp;</td><td class="left">&nbsp;<?php echo text($ins_coB); ?></td></tr>
-                    <tr><td class="right"><p class="font-weight-bold"><?php echo xlt("Pharmacy"); ?>:</p>&nbsp;</td>
+                    <tr><td class="right"><span class="font-weight-bold"><?php echo xlt("Insurance"); ?>:</span>&nbsp;</td><td class="left">&nbsp;<?php echo text($ins_coA); ?></td></tr>
+                    <tr><td class="right"><span class="font-weight-bold"><?php echo xlt("Secondary"); ?>:</span>&nbsp;</td><td class="left">&nbsp;<?php echo text($ins_coB); ?></td></tr>
+                    <tr><td class="right"><span class="font-weight-bold"><?php echo xlt("Pharmacy"); ?>:</span>&nbsp;</td>
                         <td class="left">&nbsp;
                             <?php
                             if (!empty($pat_data['pharmacy_id'])) {
@@ -4194,10 +4194,10 @@ function report_header($pid, $direction = 'shell')
             </td>
                 <td>
                 <em class="font-weight-bold" style="font-size:1.4em;"><?php echo text($titleres['fname']) . " " . text($titleres['lname']); ?></em><br />
-                <p class="font-weight-bold"><?php echo xlt('DOB'); ?>:</p> <?php echo text($DOB); ?><br />
-                <p class="font-weight-bold"><?php echo xlt('Generated on'); ?>:</p> <?php echo text(oeFormatShortDate()); ?><br />
-                <p class="font-weight-bold"><?php echo xlt('Visit Date'); ?>:</p> <?php echo oeFormatSDFT(strtotime($visit_date)); ?><br />
-                <p class="font-weight-bold"><?php echo xlt('Provider') . ':</b> ' . text(getProviderName(getProviderIdOfEncounter($encounter))) . '<br />'; ?>
+                <span class="font-weight-bold"><?php echo xlt('DOB'); ?>:</span> <?php echo text($DOB); ?><br />
+                <span class="font-weight-bold"><?php echo xlt('Generated on'); ?>:</span> <?php echo text(oeFormatShortDate()); ?><br />
+                <span class="font-weight-bold"><?php echo xlt('Visit Date'); ?>:</span> <?php echo oeFormatSDFT(strtotime($visit_date)); ?><br />
+                <span class="font-weight-bold"><?php echo xlt('Provider') . ':</span> ' . text(getProviderName(getProviderIdOfEncounter($encounter))) . '<br />'; ?>
 
           </td>
         </tr>
@@ -4993,7 +4993,7 @@ function display_GlaucomaFlowSheet($pid, $bywhat = 'byday')
     $OD_time_values = "'" . implode("','", $OD_time_values) . "'";
     $OS_time_values = "'" . implode("','", $OS_time_values) . "'";
 
-    ?> <p class="font-weight-bold"> <?php echo xlt('Glaucoma Zone'); ?>:</p>
+    ?> <span class="font-weight-bold"> <?php echo xlt('Glaucoma Zone'); ?>:</span>
         <br />
         <br />
        <span class="closeButton fas fa-times" id="Close_IOP" name="Close_IOP"></span>

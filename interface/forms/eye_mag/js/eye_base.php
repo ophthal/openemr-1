@@ -1390,8 +1390,7 @@ function build_IMPPLAN(items,nodisplay) {
                value.title +"</span>"+
                "<span contenteditable class='float-right' onclick='sel_diagnosis("+index+",\""+title2+"\");' title='"+value.codetext+"' id='CODE_"+index+"'>"+
                value.code + "</span>&nbsp;"+
-               "<br /><textarea id='PLAN_"+index+"' name='PLAN_"+index+
-               "' style='width:100%;max-width:100%;height:auto;min-height:3em;overflow-y: hidden;padding-top: 1.1em; '>"+
+               "<br /><textarea id='PLAN_"+index+"' name='PLAN_"+index+"' style='width:100%;max-width:100%;height:auto;min-height:3em;overflow-y: hidden;padding-top: 1.1em; '>"+
                value.plan +"</textarea><br /></li>";
                $('#IMPPLAN_zone').append('<div id="IMPPLAN_zone_'+index+'" class="IMPPLAN_class">'+
                                          '<i class="float-right fa fa-close" id="BUTTON_IMPPLAN_'+index+'"></i>'+
