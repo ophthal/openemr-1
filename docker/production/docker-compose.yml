@@ -1,7 +1,45 @@
 # Use admin/pass as user/password credentials to login to openemr (from OE_USER and OE_PASS below)
 # MYSQL_HOST and MYSQL_ROOT_PASS are required for openemr
+version: '3.1'
+services:
+  mysql:
+    restart: always
+    image: 'mariadb:10.4'
+    command:
+      - mysqld
+      - '--character-set-server=utf8'
+    ports:
+      - '1306:3306'
+    volumes:
+      - 'sqlmedexvolume:/var/lib/mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: Budd2833a!
+  phpmyadmin:
+    restart: always
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - '8380:80'
+    environment:
+      PMA_HOSTS: mysql
+  httpd-apache2:
+    image: 'httpd:2.4-alpine'
+    ports:
+      - '7180:80'
+      - '7443:443'
+    depends_on:
+      - mysql
+    volumes:
+      - '/Users/ray/docker/git_repos/openemr_6:/usr/local/apache2/htdocs:rw'
+      - 'logvolumeMedEx:/var/log'
+volumes:
+  sqlmedexvolume: {}
+  logvolumeMedEx: {}
+
 # MYSQL_USER, MYSQL_PASS, OE_USER, MYSQL_PASS are optional for openemr and
 #   if not provided, then default to openemr, openemr, admin, and pass respectively.
+
+
+
 version: '3.1'
 services:
   mysql:
@@ -14,7 +52,10 @@ services:
       MYSQL_ROOT_PASSWORD: root
   openemr:
     restart: always
-    image: openemr/openemr:6.0.0
+    # image: openemr/openemr:6.0.0
+    build:
+      context: 'https://ophthal:3a8319632fc8e52594c1477b91561701354f10a6@github.com/ophthal/openemr-1.git'
+    restart: 3
     ports:
     - 80:80
     - 443:443

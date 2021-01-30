@@ -236,7 +236,7 @@ if ($refresh and $refresh != 'fullscreen') {
         //define if this is a new or est patients for coding auto-suggestions
             //TODO: develop logic to recognize post-op visits 99024
             // if a prior encounter within 90 days are procedures with a global period still in effect, then post-op code
-        ?>
+        ?>hello
           <script>
               var Code_new_est ='<?php
                 if ($output_priors == '') {
@@ -246,7 +246,7 @@ if ($refresh and $refresh != 'fullscreen') {
                 }
                 ?>';
           </script>
-
+<h1>OVER HERE</h1>
         <!-- start form -->
         <form method="post" action="<?php echo $rootdir;?>/forms/<?php echo $form_folder; ?>/save.php?mode=update" id="eye_mag" class="eye_mag pure-form" name="eye_mag">
           <div id="Layer1" name="Layer1" class="display">
